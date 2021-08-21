@@ -1,9 +1,10 @@
 import { Story } from '@storybook/react/types-6-0'
 import React from 'react'
+import { STORIES_GROUPS } from '../../utils/storiesGroups'
 import { Image, ImageProps } from './Image'
 
 export default {
-  title: 'Design tokens/Image',
+  title: `${STORIES_GROUPS.dataDisplay}/Image`,
   component: Image,
 }
 

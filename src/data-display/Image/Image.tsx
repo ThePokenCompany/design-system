@@ -11,5 +11,7 @@ export const Image: React.FC<ImageProps & Record<string, any>> = ({
   className,
   ...props
 }) => {
-  return <img {...props} src={src} className={clsx('w-full', className)} />
+  return (
+    <img alt="" {...props} src={src} className={clsx('w-full', className)} />
+  )
 }
