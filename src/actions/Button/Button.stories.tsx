@@ -8,7 +8,11 @@ export default {
   component: Button,
 }
 
-const Template: Story<ButtonProps> = args => <Button {...args} />
+const Template: Story<ButtonProps<React.ElementType<'button'>>> = <
+  C extends React.ElementType = 'button'
+>(
+  args: ButtonProps<C>,
+) => <Button {...args} />
 
 export const Demo = Template.bind({})
 
@@ -17,6 +21,7 @@ Demo.args = {
   color: BUTTON_COLORS.primary,
   outlined: false,
   disabled: false,
+  component: 'button',
 }
 
 export const Examples = () => {
@@ -25,6 +30,7 @@ export const Examples = () => {
       <div className="mr-8">
         {Object.keys(BUTTON_COLORS).map((color: BUTTON_COLORS) => (
           <Button
+            key={color}
             className="mb-4"
             color={BUTTON_COLORS[color]}
             children={color}
@@ -35,6 +41,7 @@ export const Examples = () => {
       <div className="mr-8">
         {Object.keys(BUTTON_COLORS).map((color: BUTTON_COLORS) => (
           <Button
+            key={color}
             outlined
             className="mb-4 w-full"
             color={BUTTON_COLORS[color]}
@@ -46,6 +53,7 @@ export const Examples = () => {
       <div>
         {Object.keys(BUTTON_COLORS).map((color: BUTTON_COLORS) => (
           <Button
+            key={color}
             disabled
             className="mb-4 w-full"
             color={BUTTON_COLORS[color]}
