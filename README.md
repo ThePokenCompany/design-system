@@ -4,14 +4,24 @@
 
 Install
 
+Generate a token with the `read:packages` permission [here](https://github.com/settings/tokens/new)
+
+Add the following lines to your `.npmrc` (usually located at `~/.npmrc`)
+
+```
+@rareporn:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:always-auth=true
+//npm.pkg.github.com/:_authToken=YOUR_TOKEN
+```
+
 ```sh
-yarn add @rp/ui
+yarn add @rareporn/ui
 ```
 
 Inside `tailwind.config.js`
 
 ```js
-const rpuiConfig = require('@rp/ui/config')
+const rpuiConfig = require('@rareporn/ui/config')
 
 module.exports = rpuiConfig({
   purge: [],
