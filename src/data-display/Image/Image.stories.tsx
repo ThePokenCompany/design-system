@@ -4,7 +4,7 @@ import { STORIES_GROUPS } from '../../utils/storiesGroups'
 import { Image, ImageProps } from './Image'
 
 export default {
-  title: `${STORIES_GROUPS.dataDisplay}/Image`,
+  title: `${STORIES_GROUPS.DATA_DISPLAY}/Image`,
   component: Image,
 }
 

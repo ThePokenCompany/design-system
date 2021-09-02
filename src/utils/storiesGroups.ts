@@ -1,5 +1,6 @@
 export enum STORIES_GROUPS {
-    dataDisplay= "Data Display",
-    actions= "Actions",
-    popovers= "Popoers"
+    DATA_DISPLAY= "Data Display",
+    ACTIONS= "Actions",
+    LAYOUT= "Layout",
+    POPOVERS= "Popoers"
 }

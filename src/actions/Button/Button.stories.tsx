@@ -4,7 +4,7 @@ import { STORIES_GROUPS } from '../../utils/storiesGroups'
 import { Button, ButtonProps, BUTTON_COLORS } from './Button'
 
 export default {
-  title: `${STORIES_GROUPS.actions}/Button`,
+  title: `${STORIES_GROUPS.ACTIONS}/Button`,
   component: Button,
 }
 

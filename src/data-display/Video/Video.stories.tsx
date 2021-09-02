@@ -4,7 +4,7 @@ import { STORIES_GROUPS } from '../../utils/storiesGroups'
 import { Video, VideoProps } from './Video'
 
 export default {
-  title: `${STORIES_GROUPS.dataDisplay}/Video`,
+  title: `${STORIES_GROUPS.DATA_DISPLAY}/Video`,
   component: Video,
 }
 

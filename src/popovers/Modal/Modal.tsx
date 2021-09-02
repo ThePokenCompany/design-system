@@ -1,10 +1,11 @@
 import { XIcon } from '@heroicons/react/outline'
 import clsx from 'clsx'
 import React from 'react'
+import { ISeparatorProps } from '../../layout'
 import { EventCallback } from '../../types/globalTypes'
 import { IModalBodyProps, ModalBody } from './ModalBody'
 import { IModalHeaderProps, ModalHeader } from './ModalHeader'
-import { IModalSeparatorProps, ModalSeparator } from './ModalSeparator'
+import { ModalSeparator } from './ModalSeparator'
 
 const ANIMATIONS_OUT_DURATION = 65
 const ANIMATIONS_IN_DURATION = 50
@@ -17,7 +18,7 @@ interface IModalProps extends React.ComponentPropsWithoutRef<'span'> {
 interface IModalProperties {
   Header: React.FC<IModalHeaderProps>
   Body: React.FC<IModalBodyProps>
-  Separator: React.FC<IModalSeparatorProps>
+  Separator: React.FC<ISeparatorProps>
 }
 
 const Modal: React.FC<IModalProps> & IModalProperties = ({
