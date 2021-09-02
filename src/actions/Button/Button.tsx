@@ -13,6 +13,11 @@ export enum BUTTON_COLORS {
   'white' = 'white',
 }
 
+export enum BUTTON_SIZES {
+  'small' = 'small',
+  'medium' = 'medium',
+}
+
 enum TYPE_CLASS_NAMES {
   primary = `bg-primary border-primary text-black`,
   'primary-outlined' = `bg-black border-primary text-primary hover:bg-primary hover:text-black`,
@@ -25,9 +30,9 @@ enum TYPE_CLASS_NAMES {
 interface Props {
   children: string
   color?: BUTTON_COLORS
-  className?: string
   disabled?: boolean
   outlined?: boolean
+  size?: BUTTON_SIZES
 }
 
 export type ButtonProps<
@@ -42,6 +47,7 @@ export const Button: ButtonComponent = React.forwardRef(
   <C extends React.ElementType = defaultComponent>(
     {
       color = BUTTON_COLORS.primary,
+      size = BUTTON_SIZES.medium,
       disabled = false,
       outlined = false,
       className,
@@ -63,6 +69,7 @@ export const Button: ButtonComponent = React.forwardRef(
       disabled
         ? ['cursor-default bg-neutral-5 border-neutral-5 text-neutral-4']
         : typeClasses,
+      size === BUTTON_SIZES.medium ? 'h-10' : 'h-9',
       customWidth || 'w-36',
       'border',
       'font-medium',
@@ -70,14 +77,14 @@ export const Button: ButtonComponent = React.forwardRef(
       'duration-500',
       'flex',
       'justify-center',
-      'h-10',
       'text-sm',
-      'p-2',
       'px-4',
       'rounded',
       'outline-none',
       'cursor-pointer',
       'select-none',
+      'flex',
+      'items-center',
       className,
     )
 
