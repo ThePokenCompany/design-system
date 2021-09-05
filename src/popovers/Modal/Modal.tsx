@@ -13,6 +13,7 @@ const ANIMATIONS_IN_DURATION = 50
 interface IModalProps extends React.ComponentPropsWithoutRef<'span'> {
   open?: boolean
   onClose?: EventCallback
+  preventClose?: boolean
 }
 
 interface IModalProperties {
@@ -26,6 +27,7 @@ const Modal: React.FC<IModalProps> & IModalProperties = ({
   onClose,
   children,
   className,
+  preventClose = false,
   ...props
 }: IModalProps) => {
   const enteringOverlayClasses = `ease-out duration-${ANIMATIONS_OUT_DURATION} opacity-5 `
@@ -34,6 +36,10 @@ const Modal: React.FC<IModalProps> & IModalProperties = ({
   const enteringPanelClasses = `ease-out duration-${ANIMATIONS_OUT_DURATION} opacity-100 translate-y-0 md:translate-y-1/2`
   const leavingPanelClasses = `ease-in duration-${ANIMATIONS_IN_DURATION} opacity-0  pointer-events-none translate-y-full`
 
+  const handleCloseModal = (event: React.SyntheticEvent) => {
+    !preventClose && onClose && onClose(event)
+  }
+
   return (
     <>
       <div
@@ -41,7 +47,7 @@ const Modal: React.FC<IModalProps> & IModalProperties = ({
           'fixed inset-0 z-40 bg-white transition-opacity',
           open ? enteringOverlayClasses : leavingOverlayClasses,
         )}
-        onClick={onClose}
+        onClick={handleCloseModal}
       />
       <div
         className={clsx(
@@ -52,13 +58,14 @@ const Modal: React.FC<IModalProps> & IModalProperties = ({
         {...props}
       >
         <div className="relative flex flex-col w-full">
-          <button
-            className="absolute top-0 right-0	outline-none h-8 w-8 border-solid border border-neutral-3 rounded-full flex justify-center items-center"
-            onClick={onClose}
-          >
-            <XIcon className="h-6 w-6 text-neutral-8" />
-          </button>
-
+          {!preventClose && (
+            <button
+              className="absolute top-0 right-0	outline-none h-8 w-8 border-solid border border-neutral-3 rounded-full flex justify-center items-center"
+              onClick={handleCloseModal}
+            >
+              <XIcon className="h-6 w-6 text-neutral-8" />
+            </button>
+          )}
           {children}
         </div>
       </div>

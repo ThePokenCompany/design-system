@@ -33,6 +33,7 @@ export const Demo = Template.bind({})
 Demo.args = {
   open: true,
   onClose: (event: React.MouseEvent) => console.log('event', event),
+  preventClose: false,
 }
 
 export const Example = () => {
@@ -58,6 +59,45 @@ export const Example = () => {
           repellat rerum dignissimos qui deserunt!
         </Modal.Body>
         <Button className="w-full" onClick={handleClose}>
+          Accept the Offer
+        </Button>
+      </Modal>
+    </div>
+  )
+}
+
+export const ExampleUnclosable = () => {
+  const [open, setOpen] = React.useState(false)
+
+  const handleClose = () => {
+    setOpen(false)
+  }
+
+  return (
+    <div className="flex justify-center">
+      <Button onClick={() => setOpen(true)} className="mt-4">
+        Toggle modal
+      </Button>
+
+      <Modal
+        open={open}
+        preventClose
+        /* this will not be triggered */
+        onClose={handleClose}
+      >
+        <Modal.Header>Are you sure you want to accept the offer?</Modal.Header>
+        <Modal.Separator />
+        <Modal.Body>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero totam
+          illum praesentium accusamus exercitationem facere optio officiis,
+          corporis maxime architecto, quis nobis accusantium iste deleniti,
+          repellat rerum dignissimos qui deserunt!
+        </Modal.Body>
+        <Button
+          className="w-full"
+          /* this will be triggered */
+          onClick={handleClose}
+        >
           Accept the Offer
         </Button>
       </Modal>
