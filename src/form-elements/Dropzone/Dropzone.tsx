@@ -1,3 +1,4 @@
+import { UploadIcon } from '@heroicons/react/outline'
 import clsx from 'clsx'
 import React, { InputHTMLAttributes } from 'react'
 import { composeHandlers } from '../../utils/composeHandlers'
@@ -5,6 +6,8 @@ import { stopEvent } from '../../utils/stopEvent'
 
 export interface DropzoneProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string
+  /* used to override default icon */
+  icon?: React.ElementType
 }
 
 function handleDragOver(event: React.MouseEvent) {
@@ -16,6 +19,7 @@ function handleDragOver(event: React.MouseEvent) {
 export function Dropzone({
   label,
   disabled,
+  icon,
 
   // Forwarded props.
   style,
@@ -32,6 +36,8 @@ export function Dropzone({
   const [dragOver, setDragOver] = React.useState(false)
   const inputElement = React.useRef<HTMLInputElement>(null)
   const dragCounter = React.useRef(0)
+
+  const IconComponent = icon || UploadIcon
 
   function handleDragEnterOrLeave(event: React.MouseEvent) {
     if (disabled) {
@@ -79,6 +85,10 @@ export function Dropzone({
       onDragLeave={composeHandlers([handleDragEnterOrLeave, onDragLeave])}
       onDrop={composeHandlers([handleDrop, onDrop])}
     >
+      <IconComponent
+        className={clsx('w-6 mb-3 text-neutral-4', dragOver && 'opacity-70')}
+      />
+
       <span
         className={clsx(
           'text-neutral-4 text-xs mb-3',

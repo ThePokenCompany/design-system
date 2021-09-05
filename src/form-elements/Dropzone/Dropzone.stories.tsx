@@ -1,3 +1,4 @@
+import { VideoCameraIcon } from '@heroicons/react/outline'
 import { Story } from '@storybook/react/types-6-0'
 import React from 'react'
 import { STORIES_GROUPS } from '../../utils/storiesGroups'
@@ -17,4 +18,11 @@ Demo.args = {
   disabled: false,
   multiple: false,
   accept: 'image/*,.png,.gif,.webp,.mp4,.mp3',
+}
+
+export const CustomIcom = Template.bind({})
+
+CustomIcom.args = {
+  ...Demo.args,
+  icon: VideoCameraIcon,
 }
