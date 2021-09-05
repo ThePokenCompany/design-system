@@ -57,4 +57,4 @@ export type PolymorphicComponentPropsWithRef<
   Props = {}
 > = PolymorphicComponentProps<C, Props> & { ref?: PolymorphicRef<C> }
 
-export type EventCallback = (event: React.MouseEvent) => void
+export type EventCallback = (event: React.SyntheticEvent) => void 
