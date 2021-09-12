@@ -10,3 +10,19 @@
   position: absolute;
   outline: none;
 }
+
+.border-tab-active::after,
+.border-tab::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background-color: #353945;
+}
+
+.border-tab-active::after {
+  background-color: #26ded0;
+  height: 2px;
+}

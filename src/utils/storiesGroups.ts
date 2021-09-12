@@ -3,5 +3,6 @@ export enum STORIES_GROUPS {
     ACTIONS= "Actions",
     LAYOUT= "Layout",
     POPOVERS= "Popoers",
-    FORM_ELEMENTS= "Form elements"
+    FORM_ELEMENTS= "Form elements",
+    NAVIGATION= "Navigation"
 }
