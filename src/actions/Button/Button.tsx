@@ -28,7 +28,7 @@ enum TYPE_CLASS_NAMES {
 }
 
 interface Props {
-  children: string
+  children: React.ReactNode
   color?: BUTTON_COLORS
   disabled?: boolean
   outlined?: boolean
