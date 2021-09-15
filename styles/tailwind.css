@@ -26,3 +26,11 @@
   background-color: #26ded0;
   height: 2px;
 }
+
+.input-noSelection::-ms-clear {
+  display: none;
+}
+
+.input-noSelection::selection {
+  background-color: transparent;
+}
