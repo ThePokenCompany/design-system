@@ -75,7 +75,7 @@ export function Select({
   }
 
   function onNativeInputFocus() {
-    if (!focused) {
+    if (!focused && !disabled) {
       setFocused(true)
     }
   }
@@ -100,8 +100,9 @@ export function Select({
 
   const nativeInputValue = value ? getOptionLabel(value) : ''
   const opened = focused && !preventOpen
-  const textColor = !!value ? 'text-neutral-5' : 'text-neutral-4'
+  const textColor = !!value && !disabled ? 'text-neutral-5' : 'text-neutral-4'
   const ChevronIconComponent = opened ? ChevronUpIcon : ChevronDownIcon
+  const cursor = disabled ? 'cursor-not-allowed' : 'cursor-pointer'
 
   return (
     <div
@@ -116,8 +117,12 @@ export function Select({
         onFocus={onForwardFocus}
         tabIndex={disabled ? undefined : -1}
         className={clsx(
-          `w-full bg-black cursor-pointer border-2 rounded border-g h-10 p-2 outline-none flex`,
-          opened || !!value ? 'border-primary' : 'border-neutral-4',
+          cursor,
+          !disabled ? 'bg-black' : 'bg-neutral-1',
+          `w-full border-2 rounded border-g h-10 p-2 outline-none flex`,
+          (opened || !!value) && !disabled
+            ? 'border-primary'
+            : 'border-neutral-3',
         )}
       >
         <input
@@ -125,8 +130,9 @@ export function Select({
           autoCapitalize="off"
           spellCheck="false"
           className={clsx(
-            'input-noSelection flex w-full cursor-pointer select-none flex-grow bg-transparent outline-none px-2',
+            'input-noSelection placeholder-neutral-4 flex w-full select-none flex-grow bg-transparent outline-none px-2',
             textColor,
+            cursor,
           )}
           value={nativeInputValue}
           placeholder={placeholder}
@@ -136,15 +142,18 @@ export function Select({
           ref={nativeInputElement}
           readOnly
         />
-        <button
-          ref={arrowElement}
-          className="flex items-center cursor-pointer ml-2"
-          onFocus={onForwardFocus}
-          tabIndex={-1}
-          type="button"
-        >
-          <ChevronIconComponent className={clsx('w-6', textColor)} />
-        </button>
+
+        {!disabled && (
+          <button
+            ref={arrowElement}
+            className="flex items-center cursor-pointer ml-2"
+            onFocus={onForwardFocus}
+            tabIndex={-1}
+            type="button"
+          >
+            <ChevronIconComponent className={clsx('w-6', textColor)} />
+          </button>
+        )}
       </div>
 
       {opened && (
