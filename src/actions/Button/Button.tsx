@@ -28,15 +28,15 @@ enum TYPE_CLASS_NAMES {
   secondary = 'bg-neutral-2 border-neutral-3 text-neutral-6',
   'secondary-outlined' = 'bg-black border-neutral-3 text-neutral-3',
   'white' = `bg-white border-black text-black`,
-  'white-outlined' = `bg-transparent border-white text-white`,
+  'white-outlined' = `bg-black border-white text-white`,
   'green' = `bg-green border-black text-black`,
-  'green-outlined' = `bg-transparent border-green text-green`,
+  'green-outlined' = `bg-black border-green text-green`,
   'red' = `bg-red border-black text-black`,
-  'red-outlined' = `bg-transparent border-red text-red`,
+  'red-outlined' = `bg-black border-red text-red`,
   'orange' = `bg-orange border-black text-black`,
-  'orange-outlined' = `bg-transparent border-orange text-orange`,
+  'orange-outlined' = `bg-black border-orange text-orange`,
   'yellow' = `bg-yellow border-black text-black`,
-  'yellow-outlined' = `bg-transparent border-unlockable text-neutral-6`,
+  'yellow-outlined' = `bg-black border-unlockable text-neutral-6`,
 }
 
 interface Props {
