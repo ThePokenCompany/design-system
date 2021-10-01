@@ -19,7 +19,7 @@ const config = {
       gray: colors.trueGray,
       indigo: colors.indigo,
       red: colors.rose,
-      yellow: colors.amber,
+      yellow: '#FFD612',
       green: '#45B36B',
     },
     extend: {
@@ -35,6 +35,7 @@ const config = {
         'neutral-7': '#F4F5F6',
         'neutral-8': '#FCFCFD',
         unlockable: '#B5B906',
+        orange: '#FF9212',
         red: '#FF1E1E',
         turquoise: '#26DED0',
       },

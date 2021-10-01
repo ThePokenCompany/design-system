@@ -11,6 +11,10 @@ export enum BUTTON_COLORS {
   'primary' = 'primary',
   'secondary' = 'secondary',
   'white' = 'white',
+  'yellow' = 'yellow',
+  'green' = 'green',
+  'orange' = 'orange',
+  'red' = 'red',
 }
 
 export enum BUTTON_SIZES {
@@ -25,6 +29,14 @@ enum TYPE_CLASS_NAMES {
   'secondary-outlined' = 'bg-black border-neutral-3 text-neutral-3',
   'white' = `bg-white border-black text-black`,
   'white-outlined' = `bg-transparent border-white text-white`,
+  'green' = `bg-green border-black text-black`,
+  'green-outlined' = `bg-transparent border-green text-green`,
+  'red' = `bg-red border-black text-black`,
+  'red-outlined' = `bg-transparent border-red text-red`,
+  'orange' = `bg-orange border-black text-black`,
+  'orange-outlined' = `bg-transparent border-orange text-orange`,
+  'yellow' = `bg-yellow border-black text-black`,
+  'yellow-outlined' = `bg-transparent border-unlockable text-neutral-6`,
 }
 
 interface Props {
@@ -67,8 +79,8 @@ export const Button: ButtonComponent = React.forwardRef(
 
     const buttonClasses = clsx(
       disabled
-        ? ['cursor-default bg-neutral-5 border-neutral-5 text-neutral-4']
-        : typeClasses,
+        ? ['cursor-not-allowed bg-neutral-5 border-neutral-5 text-neutral-4']
+        : ['cursor-pointer', typeClasses],
       size === BUTTON_SIZES.medium ? 'h-10' : 'h-9',
       customWidth || 'w-36',
       'border',
@@ -81,7 +93,6 @@ export const Button: ButtonComponent = React.forwardRef(
       'px-4',
       'rounded',
       'outline-none',
-      'cursor-pointer',
       'select-none',
       'flex',
       'items-center',
