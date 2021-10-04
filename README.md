@@ -1,4 +1,4 @@
-# Welcome to @rp/ui 👋
+# Welcome to @rareporn/ui 👋
 
 ## 🚀 Usage
 

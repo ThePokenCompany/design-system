@@ -1,5 +1,4 @@
-import { Image } from '@rp/ui'
-import React from 'react'
+import { Image } from '@rareporn/ui'
 import './App.css'
 
 function App() {
@@ -7,7 +6,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Image
-          src="https://pbs.twimg.com/profile_images/1384883067064659969/l7de2RvQ_400x400.jpg"
+          src="https://global-uploads.webflow.com/612d3e6930fdc54f36f7d349/612f49b5ac99ee2dc27c9926_GIF_POKMI_V1_blanc.gif"
           className="App-logo overflow-hidden rounded-full h-48 w-full object-cover md:h-full md:w-48"
         />
 
