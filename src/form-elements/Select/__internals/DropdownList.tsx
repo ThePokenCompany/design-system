@@ -2,7 +2,7 @@ import React from 'react'
 import { SelectValue } from '..'
 import { usePopper } from '../../../utils/usePopper'
 
-export interface IDropDownListProps
+export interface IDropdownListProps
   extends React.ComponentPropsWithoutRef<'ul'> {
   options: SelectValue[]
   referenceElement: any
@@ -10,9 +10,9 @@ export interface IDropDownListProps
   getOptionLabel: (option: SelectValue) => string
 }
 
-export type DropDownListComponent = React.FC<IDropDownListProps>
+export type DropdownListComponent = React.FC<IDropdownListProps>
 
-export const DropDownList = React.forwardRef(
+export const DropdownList = React.forwardRef(
   (
     {
       onFocus,
@@ -20,7 +20,7 @@ export const DropDownList = React.forwardRef(
       onSelectOption,
       getOptionLabel,
       referenceElement,
-    }: IDropDownListProps,
+    }: IDropdownListProps,
     ref: any,
   ) => {
     const mountingPoint = React.useMemo(() => document.createElement('div'), [])

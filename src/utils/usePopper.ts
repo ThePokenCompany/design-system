@@ -3,7 +3,6 @@ import PopperJS from 'popper.js'
 import React from 'react'
 
 const INITIAL_STATE = {
-  arrowStyle: {},
   outOfBoundaries: false,
   placement: null,
   style: {
@@ -24,8 +23,6 @@ function updateState(newState : any) {
     return {
       // Preserve the references if the objects are deeply equal.
       style: getCurrentValue(state.style, newState.styles),
-      arrowStyle: getCurrentValue(state.arrowStyle, newState.arrowStyles),
-
       outOfBoundaries: newState.hide,
       placement: newState.placement,
     }
@@ -56,7 +53,6 @@ export const  usePopper : usePopperType = (
   popperRef,
   {
     disabled = false,
-    arrowRef,
     placement = 'bottom',
     modifiers = DEFAULT_MODIFIERS,
     eventsEnabled = true,
@@ -82,11 +78,7 @@ export const  usePopper : usePopperType = (
             positionFixed,
             modifiers: {
               ...modifiers,
-              arrow: {
-                enabled: arrowRef != null && arrowRef.current != null,
-                element: arrowRef == null ? null : arrowRef.current,
-                ...modifiers.arrow,
-              },
+
               applyStyle: {
                 // We apply the styles ourselves.
                 enabled: false,
@@ -120,7 +112,7 @@ export const  usePopper : usePopperType = (
       }
     },
 
-    // 'arrowRef', 'popperRef', and 'referenceRef' are React Ref objects.
+    // 'popperRef', and 'referenceRef' are React Ref objects.
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [disabled, placement, modifiers, eventsEnabled, positionFixed],
   )

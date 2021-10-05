@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import React from 'react'
 import { composeHandlers } from '../../utils/composeHandlers'
 import { getDefaultValue } from './__internals/constants'
-import { DropDownList } from './__internals/DropdownList'
+import { DropdownList } from './__internals/DropdownList'
 
 export type SelectValue = string | { [key: string]: string } | null
 
@@ -159,7 +159,7 @@ export function Select({
       </div>
 
       {opened && (
-        <DropDownList
+        <DropdownList
           referenceElement={wrapperElement}
           onSelectOption={onSelectOption}
           options={options}
