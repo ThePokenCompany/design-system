@@ -30,13 +30,22 @@ export const ExampleWithStrings = () => {
   const [value, setValue] = React.useState<SelectValue>('')
 
   return (
-    <Select
-      label="Example with strings"
-      placeholder="Select a fruit"
-      value={value}
-      onChange={el => setValue(el)}
-      options={['apple 🍎', 'orange 🍊', 'kiwi 🥝', 'banana 🍌']}
-    />
+    <div
+      style={{
+        height: '150vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+      }}
+    >
+      <Select
+        label="Example with strings"
+        placeholder="Select a fruit"
+        value={value}
+        onChange={el => setValue(el)}
+        options={['apple 🍎', 'orange 🍊', 'kiwi 🥝', 'banana 🍌']}
+      />
+    </div>
   )
 }
 
@@ -44,7 +53,14 @@ export const ExampleWithObjects = () => {
   const [value, setValue] = React.useState<SelectValue>(null)
 
   return (
-    <div>
+    <div
+      style={{
+        height: '150vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+      }}
+    >
       <Select
         label="Example with objects"
         placeholder="Select a fruit"

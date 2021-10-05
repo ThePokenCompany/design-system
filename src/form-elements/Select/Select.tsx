@@ -3,6 +3,7 @@ import clsx from 'clsx'
 import React from 'react'
 import { composeHandlers } from '../../utils/composeHandlers'
 import { getDefaultValue } from './__internals/constants'
+import { DropDownList } from './__internals/DropdownList'
 
 export type SelectValue = string | { [key: string]: string } | null
 
@@ -93,7 +94,7 @@ export function Select({
     }
   }
 
-  const onSelectItem = (option: SelectValue) => {
+  const onSelectOption = (option: SelectValue) => {
     setPreventOpen(true)
     onChange(option)
   }
@@ -105,75 +106,67 @@ export function Select({
   const cursor = disabled ? 'cursor-not-allowed' : 'cursor-pointer'
 
   return (
-    <div
-      className={clsx('relative w-full flex flex-col', className)}
-      {...props}
-    >
-      {label && <label className="text-neutral-5 mb-2 text-xs">{label}</label>}
-
-      <div
-        ref={wrapperElement}
-        onClick={onWrapperClick}
-        onFocus={onForwardFocus}
-        tabIndex={disabled ? undefined : -1}
-        className={clsx(
-          cursor,
-          !disabled ? 'bg-black' : 'bg-neutral-1',
-          `w-full border-2 rounded border-g h-10 p-2 outline-none flex`,
-          (opened || !!value) && !disabled
-            ? 'border-primary'
-            : 'border-neutral-3',
+    <>
+      <div className={clsx('w-full flex flex-col', className)} {...props}>
+        {label && (
+          <label className="text-neutral-5 mb-2 text-xs">{label}</label>
         )}
-      >
-        <input
-          autoComplete="off"
-          autoCapitalize="off"
-          spellCheck="false"
+
+        <div
+          ref={wrapperElement}
+          onClick={onWrapperClick}
+          onFocus={onForwardFocus}
+          tabIndex={disabled ? undefined : -1}
           className={clsx(
-            'input-noSelection placeholder-neutral-4 flex w-full select-none flex-grow bg-transparent outline-none px-2',
-            textColor,
             cursor,
+            !disabled ? 'bg-black' : 'bg-neutral-1',
+            `w-full border-2 rounded border-g h-10 p-2 outline-none flex`,
+            (opened || !!value) && !disabled
+              ? 'border-primary'
+              : 'border-neutral-3',
           )}
-          value={nativeInputValue}
-          placeholder={placeholder}
-          disabled={disabled}
-          onFocus={composeHandlers([onNativeInputFocus, onFocusProp])}
-          onBlur={composeHandlers([onNativeInputBlur, onBlurProp])}
-          ref={nativeInputElement}
-          readOnly
-        />
+        >
+          <input
+            autoComplete="off"
+            autoCapitalize="off"
+            spellCheck="false"
+            className={clsx(
+              'input-noSelection placeholder-neutral-4 flex w-full select-none flex-grow bg-transparent outline-none px-2',
+              textColor,
+              cursor,
+            )}
+            value={nativeInputValue}
+            placeholder={placeholder}
+            disabled={disabled}
+            onFocus={composeHandlers([onNativeInputFocus, onFocusProp])}
+            onBlur={composeHandlers([onNativeInputBlur, onBlurProp])}
+            ref={nativeInputElement}
+            readOnly
+          />
 
-        {!disabled && (
-          <button
-            ref={arrowElement}
-            className="flex items-center cursor-pointer ml-2"
-            onFocus={onForwardFocus}
-            tabIndex={-1}
-            type="button"
-          >
-            <ChevronIconComponent className={clsx('w-6', textColor)} />
-          </button>
-        )}
+          {!disabled && (
+            <button
+              ref={arrowElement}
+              className="flex items-center cursor-pointer ml-2"
+              onFocus={onForwardFocus}
+              tabIndex={-1}
+              type="button"
+            >
+              <ChevronIconComponent className={clsx('w-6', textColor)} />
+            </button>
+          )}
+        </div>
       </div>
 
       {opened && (
-        <ul
-          tabIndex={-1}
-          onFocus={onForwardFocus}
+        <DropDownList
+          referenceElement={wrapperElement}
+          onSelectOption={onSelectOption}
+          options={options}
+          getOptionLabel={getOptionLabel}
           ref={optionListElement}
-          className="absolute cursor-pointer p-4 right-0 left-0 border-2 border-neutral-3 rounded border-g bg-neutral-2 flex flex-col -bottom-2 transform translate-y-full"
-        >
-          {options.map((option, index) => (
-            <li
-              key={index}
-              onClick={() => onSelectItem(option)}
-              className="pl-4 h-12 text-neutral-8 rounded flex justify-start items-center hover:bg-neutral-3"
-            >
-              <span className="select-none">{getOptionLabel(option)}</span>
-            </li>
-          ))}
-        </ul>
+        />
       )}
-    </div>
+    </>
   )
 }
