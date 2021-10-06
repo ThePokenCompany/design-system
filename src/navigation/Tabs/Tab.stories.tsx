@@ -18,7 +18,8 @@ const Template: Story<TabProps<React.ElementType<'button'>>> = <
 export const ItemDemo = Template.bind({})
 
 ItemDemo.args = {
-  children: 'Tab item !',
+  children: 'Tab content !',
+  title: 'Tab item !',
   component: 'button',
   active: false,
 }
@@ -30,10 +31,21 @@ export const Example = () => {
     <Tabs>
       {[...new Array(3)].map((_, index) => (
         <Tabs.Tab
+          key={index}
           onClick={() => setActive(index + 1)}
           active={index + 1 === active}
+          title={`Tab ${index + 1}`}
         >
-          Tab {index + 1}
+          <div style={{ color: '#FFF', marginTop: 24 }}>
+            <h4>Content {index + 1}</h4>
+
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
+              omnis harum autem, beatae adipisci et, temporibus nemo quibusdam
+              perferendis doloribus voluptate non cumque molestias, nobis
+              recusandae nisi aliquam earum provident?
+            </p>
+          </div>
         </Tabs.Tab>
       ))}
     </Tabs>
