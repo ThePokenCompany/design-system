@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import React from 'react'
+import { TabId } from '.'
 import {
   PolymorphicComponentPropsWithRef,
   PolymorphicRef,
@@ -10,6 +11,8 @@ type defaultComponent = 'button'
 interface Props {
   children: React.ReactNode
   active?: boolean
+  id: TabId
+  title: string
 }
 
 export type TabProps<
@@ -22,7 +25,14 @@ export type TabComponent = <C extends React.ElementType = defaultComponent>(
 
 export const Tab: TabComponent = React.forwardRef(
   <C extends React.ElementType = defaultComponent>(
-    { className, children, component, active = false, ...props }: TabProps<C>,
+    {
+      className,
+      children,
+      component,
+      title,
+      active = false,
+      ...props
+    }: TabProps<C>,
     ref?: PolymorphicRef<C>,
   ) => {
     const Component = component || 'button'
@@ -36,9 +46,8 @@ export const Tab: TabComponent = React.forwardRef(
           active ? 'text-neutral-8 border-tab-active' : 'text-neutral-5',
         )}
         ref={ref}
-      >
-        {children}
-      </Component>
+        children={title}
+      />
     )
   },
 )
