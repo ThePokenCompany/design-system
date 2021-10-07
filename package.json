@@ -48,6 +48,7 @@
     "@storybook/addons": "^6.3.7",
     "@storybook/preset-create-react-app": "^3.2.0",
     "@storybook/react": "^6.2.9",
+    "@types/lodash": "^4.14.175",
     "@types/react": "^17.0.17",
     "@types/react-dom": "^17.0.9",
     "css-loader": "^3.6.0",
@@ -66,6 +67,8 @@
     "@tailwindcss/forms": "^0.3.2",
     "clsx": "^1.1.1",
     "deepmerge": "4.2.2",
+    "lodash": "^4.17.21",
+    "popper.js": "^1.16.1",
     "postcss": "^8.2.15",
     "tailwindcss": ">=2.0.0"
   },
