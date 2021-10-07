@@ -43,7 +43,7 @@ export const Tab: TabComponent = React.forwardRef(
         className={clsx(
           className,
           'relative py-2 px-3 box-border h-10',
-          active ? 'text-neutral-8 border-b-2 border-primary' : 'border-b text-neutral-5',
+          active ? 'text-neutral-8 border-b-2 border-primary' : 'border-b border-neutral-3 text-neutral-5',
         )}
         ref={ref}
         children={title}
