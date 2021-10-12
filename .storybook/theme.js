@@ -1,5 +1,4 @@
 import { create } from '@storybook/theming'
-import { config } from '../config'
 import pkg from '../package.json'
 
 export default create({

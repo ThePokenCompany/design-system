@@ -1,4 +1,4 @@
-# Welcome to @rareporn/ui 👋
+# Welcome to @thepokencompany/ui 👋
 
 ## 🚀 Usage
 
@@ -9,19 +9,19 @@ Generate a token with the `read:packages` permission [here](https://github.com/s
 Add the following lines to your `.npmrc` (usually located at `~/.npmrc`)
 
 ```
-@rareporn:registry=https://npm.pkg.github.com
+@thepokencompany:registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:always-auth=true
 //npm.pkg.github.com/:_authToken=YOUR_TOKEN
 ```
 
 ```sh
-yarn add @rareporn/ui
+yarn add @thepokencompany/ui
 ```
 
 Inside `tailwind.config.js`
 
 ```js
-const rpuiConfig = require('@rareporn/ui/config')
+const rpuiConfig = require('@thepokencompany/ui/config')
 
 module.exports = rpuiConfig({
   purge: [],

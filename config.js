@@ -6,8 +6,8 @@ const config = {
   darkMode: false, // or 'media' or 'class'
   purge: {
     content: [
-      'node_modules/@rareporn/ui/lib/defaultTheme.js',
-      'node_modules/@rareporn/ui/dist/index.js',
+      'node_modules/@thepokencompany/ui/lib/defaultTheme.js',
+      'node_modules/@thepokencompany/ui/dist/index.js',
     ],
   },
   theme: {

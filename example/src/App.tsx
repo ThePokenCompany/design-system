@@ -1,4 +1,4 @@
-import { Image } from '@rareporn/ui'
+import { Image } from '@thepokencompany/ui'
 import './App.css'
 
 function App() {
