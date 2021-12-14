@@ -24,19 +24,19 @@ export enum BUTTON_SIZES {
 
 enum TYPE_CLASS_NAMES {
   primary = `bg-primary border-primary text-black`,
-  'primary-outlined' = `bg-black border-primary text-primary hover:bg-primary hover:text-black`,
+  'primary-outlined' = ` border-primary text-primary hover:bg-primary hover:text-black`,
   secondary = 'bg-neutral-2 border-neutral-3 text-neutral-6',
-  'secondary-outlined' = 'bg-black border-neutral-3 text-neutral-3',
+  'secondary-outlined' = ' border-neutral-3 text-neutral-3',
   'white' = `bg-white border-black text-black`,
-  'white-outlined' = `bg-black border-white text-white`,
+  'white-outlined' = `border-white text-white`,
   'green' = `bg-green border-black text-black`,
-  'green-outlined' = `bg-black border-green text-green`,
+  'green-outlined' = ` border-green text-green`,
   'red' = `bg-red border-black text-black`,
-  'red-outlined' = `bg-black border-red text-red`,
+  'red-outlined' = ` border-red text-red`,
   'orange' = `bg-orange border-black text-black`,
-  'orange-outlined' = `bg-black border-orange text-orange`,
+  'orange-outlined' = ` border-orange text-orange`,
   'yellow' = `bg-yellow border-black text-black`,
-  'yellow-outlined' = `bg-black border-unlockable text-neutral-6`,
+  'yellow-outlined' = ` border-unlockable text-neutral-6`,
 }
 
 interface Props {
@@ -75,14 +75,17 @@ export const Button: ButtonComponent = React.forwardRef(
     const widthRegex = /\sw-[a-z0-9\/]+/g
     const customWidth = className?.match(widthRegex)?.length
 
+    const heightRegex = /\sh-[a-z0-9\/]+/g
+    const customHeight = className?.match(heightRegex)?.length
+
     const typeClasses = TYPE_CLASS_NAMES[outlined ? color + '-outlined' : color]
 
     const buttonClasses = clsx(
       disabled
         ? ['cursor-not-allowed bg-neutral-5 border-neutral-5 text-neutral-4']
         : ['cursor-pointer', typeClasses],
-      size === BUTTON_SIZES.medium ? 'h-10' : 'h-9',
       customWidth || 'w-36',
+      customHeight || (size === BUTTON_SIZES.medium ? 'h-10' : 'h-9'),
       'border',
       'font-medium',
       'animation',
