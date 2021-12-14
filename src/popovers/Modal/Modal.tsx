@@ -30,7 +30,7 @@ const Modal: React.FC<IModalProps> & IModalProperties = ({
   preventClose = false,
   ...props
 }: IModalProps) => {
-  const enteringOverlayClasses = `ease-out duration-${ANIMATIONS_OUT_DURATION} opacity-95`
+  const enteringOverlayClasses = `ease-out duration-${ANIMATIONS_OUT_DURATION} opacity-100`
   const leavingOverlayClasses = `ease-in duration-${ANIMATIONS_IN_DURATION} opacity-0  pointer-events-none scale-0`
 
   const enteringPanelClasses = `ease-out duration-${ANIMATIONS_OUT_DURATION} opacity-100 translate-y-0 md:translate-y-1/2`
@@ -44,7 +44,7 @@ const Modal: React.FC<IModalProps> & IModalProperties = ({
     <>
       <div
         className={clsx(
-          'fixed inset-0 z-40 bg-neutral-2 transition-opacity',
+          'fixed inset-0 z-40  backdrop-filter backdrop-blur-2xl transition-opacity',
           open ? enteringOverlayClasses : leavingOverlayClasses,
         )}
         onClick={handleCloseModal}
