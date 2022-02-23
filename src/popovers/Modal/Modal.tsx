@@ -44,7 +44,7 @@ const Modal: React.FC<IModalProps> & IModalProperties = ({
     <>
       <div
         className={clsx(
-          'fixed inset-0 z-40  backdrop-filter backdrop-blur-2xl transition-opacity',
+          'fixed inset-0 z-40 backdrop-blur transition-opacity',
           open ? enteringOverlayClasses : leavingOverlayClasses,
         )}
         onClick={handleCloseModal}

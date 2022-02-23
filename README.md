@@ -37,6 +37,18 @@ module.exports = rpuiConfig({
 
 You can find an usage example [here](example).
 
+## 🤓 Test in local
+
+```sh
+yarn build
+yarn link
+```
+
+In targeted local repository
+```sh
+yarn link "@thepokencompany/ui"
+````
+
 ## 🎨 Run storybook
 
 ```sh
@@ -47,4 +59,10 @@ yarn start
 
 ```sh
 yarn format
+```
+## 🚀 Deploy package
+
+```sh
+npm version [<newversion> | major | minor | patch]
+git push origin main --tags
 ```

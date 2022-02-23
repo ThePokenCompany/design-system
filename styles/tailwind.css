@@ -34,3 +34,14 @@
 .input-noSelection::selection {
   background-color: transparent;
 }
+
+.backdrop-blur {
+  -webkit-backdrop-filter: blur(40px);
+  backdrop-filter: blur(40px);
+}
+
+@supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+  .backdrop-blur {
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+}
