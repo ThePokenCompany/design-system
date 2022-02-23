@@ -63,6 +63,6 @@ yarn format
 ## 🚀 Deploy package
 
 ```sh
-npm version <semantic versioning>
+npm version [<newversion> | major | minor | patch]
 git push origin main --tags
 ```
