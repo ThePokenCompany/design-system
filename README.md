@@ -64,5 +64,5 @@ yarn format
 
 ```sh
 npm version <semantic versioning>
-npm publish
+git push origin main --tags
 ```
