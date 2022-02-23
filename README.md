@@ -60,3 +60,9 @@ yarn start
 ```sh
 yarn format
 ```
+## 🚀 Deploy package
+
+```sh
+npm version <semantic versioning>
+npm publish
+```
