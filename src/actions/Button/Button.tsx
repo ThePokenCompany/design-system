@@ -38,8 +38,8 @@ enum TYPE_CLASS_NAMES {
   'orange-outlined' = ` border-orange text-orange`,
   'yellow' = `bg-yellow border-black text-black`,
   'yellow-outlined' = ` border-unlockable text-neutral-6`,
-  'gradient' = 'bg-gradient-to-r from-primary to-purple text-black border-black',
-  'gradient-outlined' = 'border-primary text-primary hover:bg-gradient-to-r hover:from-primary hover:to-purple hover:text-black'
+  'gradient' = 'bg-gradient-to-r from-primary to-purple text-white border-black',
+  'gradient-outlined' = 'border-primary text-primary hover:bg-gradient-to-r hover:from-primary hover:to-purple hover:text-white'
 }
 
 interface Props {
