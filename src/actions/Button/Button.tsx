@@ -15,6 +15,7 @@ export enum BUTTON_COLORS {
   'green' = 'green',
   'orange' = 'orange',
   'red' = 'red',
+  'gradient' = 'gradient'
 }
 
 export enum BUTTON_SIZES {
@@ -37,6 +38,8 @@ enum TYPE_CLASS_NAMES {
   'orange-outlined' = ` border-orange text-orange`,
   'yellow' = `bg-yellow border-black text-black`,
   'yellow-outlined' = ` border-unlockable text-neutral-6`,
+  'gradient' = 'bg-gradient-to-r from-primary to-purple text-black border-black',
+  'gradient-outlined' = 'border-primary text-primary hover:bg-gradient-to-r hover:from-primary hover:to-purple hover:text-black'
 }
 
 interface Props {
