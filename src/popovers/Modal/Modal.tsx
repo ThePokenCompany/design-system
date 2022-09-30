@@ -1,4 +1,4 @@
-import { XIcon } from '@heroicons/react/outline'
+import { XIcon, ArrowLeftIcon } from '@heroicons/react/outline'
 import clsx from 'clsx'
 import React from 'react'
 import { ISeparatorProps } from '../../layout'
@@ -12,6 +12,7 @@ const ANIMATIONS_IN_DURATION = 50
 
 interface IModalProps extends React.ComponentPropsWithoutRef<'span'> {
   open?: boolean
+  onBack?: EventCallback
   onClose?: EventCallback
   preventClose?: boolean
 }
@@ -24,6 +25,7 @@ interface IModalProperties {
 
 const Modal: React.FC<IModalProps> & IModalProperties = ({
   open,
+  onBack,
   onClose,
   children,
   className,
@@ -58,9 +60,17 @@ const Modal: React.FC<IModalProps> & IModalProperties = ({
         {...props}
       >
         <div className="relative flex flex-col w-full">
+          {onBack && (
+            <button
+              className="absolute top-0 left-0	outline-none h-8 w-8 flex justify-center items-center"
+              onClick={onBack}
+            >
+              <ArrowLeftIcon className="h-6 w-6 text-neutral-8" />
+            </button>
+          )}
           {!preventClose && (
             <button
-              className="absolute top-0 right-0	outline-none h-8 w-8 border-solid border border-neutral-3 rounded-full flex justify-center items-center"
+              className="absolute top-0 right-0	outline-none h-8 w-8 flex justify-center items-center"
               onClick={handleCloseModal}
             >
               <XIcon className="h-6 w-6 text-neutral-8" />
