@@ -53,7 +53,7 @@ const Modal: React.FC<IModalProps> & IModalProperties = ({
       />
       <div
         className={clsx(
-          'max-h-screen py-6 px-3 fixed bottom-0 inset-auto md:inset-0 rounded-t-2xl bg-neutral-1 z-50 transition-all md:rounded-b-2xl md:bottom-1/2 transform overflow-y-auto w-full lg:w-9/12	xl:w-1/2 m-auto',
+          'max-h-screen py-6 px-3 fixed bottom-0 inset-x-auto md:inset-x-0 rounded-t-2xl bg-neutral-1 z-50 transition-all md:rounded-b-2xl md:bottom-1/2 transform overflow-y-auto w-full lg:w-9/12	xl:w-1/2 m-auto',
           open ? enteringPanelClasses : leavingPanelClasses,
           className,
         )}
