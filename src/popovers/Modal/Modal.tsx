@@ -46,17 +46,19 @@ const Modal: React.FC<IModalProps> & IModalProperties = ({
     <>
       <div
         className={clsx(
-          'fixed inset-0 z-40 backdrop-blur transition-opacity',
+          'fixed inset-0 backdrop-blur transition-opacity',
           open ? enteringOverlayClasses : leavingOverlayClasses,
         )}
+        style={{zIndex: 9999}}
         onClick={handleCloseModal}
       />
       <div
         className={clsx(
-          'max-h-screen py-6 px-3 fixed bottom-0 inset-x-auto md:inset-x-0 rounded-t-2xl bg-neutral-1 z-50 transition-all md:rounded-b-2xl md:bottom-1/2 transform overflow-y-auto w-full lg:w-9/12	xl:w-1/2 m-auto',
+          'max-h-screen py-6 px-3 fixed bottom-0 inset-x-auto md:inset-x-0 rounded-t-2xl bg-neutral-1 transition-all md:rounded-b-2xl md:bottom-1/2 transform overflow-y-auto w-full lg:w-9/12	xl:w-1/2 m-auto',
           open ? enteringPanelClasses : leavingPanelClasses,
           className,
         )}
+        style={{zIndex: 9999}}
         {...props}
       >
         <div className="relative flex flex-col w-full">
