@@ -7,9 +7,6 @@
     "name": "Ramirez Tristan",
     "email": "tristan.rami@gmail.com"
   },
-  "engines": {
-    "node": ">=14.17.0"
-  },
   "license": "MIT",
   "publishConfig": {
     "access": "public",
