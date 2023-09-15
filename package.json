@@ -1,11 +1,14 @@
 {
   "name": "@thepokencompany/ui",
-  "version": "0.8.8",
+  "version": "0.8.9",
   "description": "React UI component library built with Tailwind CSS",
   "repository": "https://github.com/ThePokenCompany/design-system",
   "author": {
     "name": "Ramirez Tristan",
     "email": "tristan.rami@gmail.com"
+  },
+  "engines": {
+    "node": ">=14.17.0"
   },
   "license": "MIT",
   "publishConfig": {
